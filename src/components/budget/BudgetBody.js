@@ -9,7 +9,7 @@ const BudgetBody = (props) => {
   return (
     <div className="budget-body">
         <div className='text-intro'>
-            <h1>Welcome To Your Personal Budget, {props.customerName}</h1>
+            <h1>Welcome To Your Personal Budget, {props.customerName.toUpperCase()}</h1>
             <p>Enter the price, description and give a special name to your expenditure</p>
         </div>
         <div className='budget-body-sectioned'>

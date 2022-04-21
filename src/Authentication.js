@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import Login from "./components/authentication/Login";
+// import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import "./authentication.css"
 import LoginB from "./components/authentication/LoginB";
+
 const Authentication = (props) => {
     const [auth, setAuth] = useState("register")
     const [alert, setAlert] = useState({ishow: false, status: "", messsage: ""})

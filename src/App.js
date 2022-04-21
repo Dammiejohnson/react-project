@@ -3,9 +3,8 @@ import "./MyApp.css"
 import Authentication from "./Authentication";
 import {useState} from "react";
 import { BrowserRouter as Router,
-    Switch,
-     Route,
-     Link } from 'react-router-dom'
+        Switch,
+        Route} from 'react-router-dom'
 
 function App() {
   // const [isSubmitted, setIsSubmitted] = useState(false)
@@ -17,13 +16,15 @@ function App() {
       {/*  {isSubmitted ? <Budget/> : <Authentication setIsSubmitted = {setIsSubmitted}/>}*/}
       <Router>
           <Route exact path="/">
-           <Authentication setCustomerName = {setCustomerName}/>
+           {/*<Authentication setCustomerName = {setCustomerName}/>*/}
+              <Authentication/>
           </Route>
 
         {/*{isSubmitted ? <Budget/> : <Authentication setIsSubmitted = {setIsSubmitted}/>}*/}
         <Switch>
-          <Route path="/dashboard">
-           <Budget customerName = {customerName}/>
+          <Route path="/dashboard/:identity">
+           {/*<Budget customerName = {customerName}/>*/}
+              <Budget/>
           </Route>
         </Switch>
            </Router>

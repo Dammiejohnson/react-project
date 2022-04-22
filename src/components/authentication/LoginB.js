@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom'
 
-const LoginB = (props) => {
+const LoginB = ({setAlert}) => {
 
     let history = useHistory();
 
     const [userDetails, setUserDetails] = useState({identity: "", password: ""})
+
 
     const handleUserInput = (e) => {
         setUserDetails({...userDetails, [e.target.name] : e.target.value})
@@ -14,7 +15,7 @@ const LoginB = (props) => {
     const handleLogin = () => {
         let usersRepository  = JSON.parse(localStorage.getItem("users"))
 
-        let user = {}
+        let user;
         let isValid = usersRepository.some((userObject) =>{
             let idCheck = (userObject?.email === userDetails.identity ||
                 userObject?.username === userDetails?.identity)
@@ -25,14 +26,19 @@ const LoginB = (props) => {
             return idCheck &&  passwordCheck
         })
 
+        let {identity} = userDetails
+
         isValid?
-            history.push("/dashboard"):
-            props.setAlert({ishow: true, status: "error", message: "User Details Incorrect"})
+            // history.push("/dashboard"):
+           history.push(`/dashboard/${user.username}/?id=${identity}`) :
+            // props.setAlert({ishow: true, status: "error", message: "User Details Incorrect"})
+             setAlert({ishow: true, status: "error", message: "User Details Incorrect"})
        setTimeout(
-           () =>  props.setAlert({ishow: false, status: "success", message: "login successful"}),
+           // () =>  props.setAlert({ishow: false, status: "success", message: "login successful"}),
+           () =>  setAlert({ishow: false, status: "success", message: "login successful"}),
       5000 )
 
-        props.setCustomerName(user.username)
+        // props.setCustomerName(user.username)
     }
 
     return (

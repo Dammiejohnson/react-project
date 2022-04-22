@@ -8,7 +8,7 @@ import { BrowserRouter as Router,
 
 function App() {
   // const [isSubmitted, setIsSubmitted] = useState(false)
-    const [customerName, setCustomerName] = useState("")
+  //   const [customerName, setCustomerName] = useState("")
   return (
     <div className="app-container">
       {/*<Budget/>*/}

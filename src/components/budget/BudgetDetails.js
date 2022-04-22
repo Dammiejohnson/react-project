@@ -3,7 +3,7 @@ import {toDatetimeLocal} from '../../util'
 import './budgetBody.css'
 
 const BudgetDetails = (props) => {
-    let {budget, setBudget, balance,setBalance} = props
+    let {budget, setBudget, balance,setBalance, currency} = props
 
    const deleteEntry = (objectId, budgetAmount) => {
      let newObject = [...budget]
@@ -29,7 +29,7 @@ const BudgetDetails = (props) => {
             <tr key = {index} className = "data-row">
                 <td>{toDatetimeLocal(data.date)}</td>
                 <td>{data.budgetName}</td>
-                <td>{data.budgetAmount}</td>
+                <td>{ currency }{data.budgetAmount}</td>
                 <td>{data.budgetDescription}</td>
                 <td>
                   <button onClick = {() => deleteEntry(index, +data.budgetAmount)} style = {{backgroundColor: "red", color: "white", padding: "2px 10px", border: "unset"}}> 

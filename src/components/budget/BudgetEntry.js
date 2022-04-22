@@ -19,7 +19,7 @@ const BudgetEntry = (props) => {
             setBalance(newBalance)
         }
         else setBalance((initial) => {
-            setInput(()=> setBalance(initial), 5000)
+            setTimeout(()=> setBalance(initial), 2000)
             return "Budget limit exceeded"
         })
     }
